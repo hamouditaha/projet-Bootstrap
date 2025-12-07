@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Bootstrap - Site Responsive</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            
+            .carousel-item img {
+                height: 200px;
+            }
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-building"></i> MonEntreprise
+            </a>
+            
+            <!-- Menu déroulant pour mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipe">Équipe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Solutions Innovantes pour Votre Business</h1>
+                    <p class="lead mb-4">Nous offrons des services de haute qualité pour transformer vos idées en réalité.</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Nous Contacter</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/600x400/667eea/ffffff?text=Hero+Image" 
+                         alt="Hero Image" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Réalisations</h2>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/1200x500/3498db/ffffff?text=Projet+1" 
+                             class="d-block w-100" alt="Projet 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Projet Innovation</h5>
+                            <p>Développement d'une solution web moderne.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x500/2ecc71/ffffff?text=Projet+2" 
+                             class="d-block w-100" alt="Projet 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Application Mobile</h5>
+                            <p>Création d'applications iOS et Android.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x500/e74c3c/ffffff?text=Projet+3" 
+                             class="d-block w-100" alt="Projet 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Consulting Digital</h5>
+                            <p>Accompagnement stratégique pour votre transformation.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Services</h2>
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-4">
+                    <div class="card card-hover h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-laptop display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Développement Web</h5>
+                            <p class="card-text">Création de sites web responsives et applications web sur mesure.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-md-4">
+                    <div class="card card-hover h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-phone display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Applications Mobile</h5>
+                            <p class="card-text">Développement d'applications iOS et Android natives.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="col-md-4">
+                    <div class="card card-hover h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cloud-arrow-up display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Solutions Cloud</h5>
+                            <p class="card-text">Migration et gestion de vos infrastructures cloud.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Équipe -->
+    <section id="equipe" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Notre Équipe</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <img src="https://via.placeholder.com/300x300/3498db/ffffff?text=Éliane" 
+                             class="card-img-top" alt="Éliane">
+                        <div class="card-body">
+                            <h5 class="card-title">Éliane</h5>
+                            <p class="card-text">Directrice Technique</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <img src="https://via.placeholder.com/300x300/2ecc71/ffffff?text=Nahau" 
+                             class="card-img-top" alt="Nahau">
+                        <div class="card-body">
+                            <h5 class="card-title">Nahau</h5>
+                            <p class="card-text">Chef de Projet</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <img src="https://via.placeholder.com/300x300/e74c3c/ffffff?text=Nom3" 
+                             class="card-img-top" alt="Membre 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Nom Équipe 3</h5>
+                            <p class="card-text">Développeur Full-Stack</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <img src="https://via.placeholder.com/300x300/f39c12/ffffff?text=Nom4" 
+                             class="card-img-top" alt="Membre 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Nom Équipe 4</h5>
+                            <p class="card-text">Designer UI/UX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Nous Trouver</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.3493478360923!2d-7.589072884797038!3d33.59519188073206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778a113b1%3A0xb06c1d84f310fd3!2sCasablanca!5e0!3m2!1sfr!2sma!4v1645781234567!5m2!1sfr!2sma" 
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire Contact -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contactez-nous</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nom" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="nom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="sujet" class="form-label">Sujet</label>
+                                <input type="text" class="form-control" id="sujet" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 MonEntreprise. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialisation du carousel
+        const myCarousel = new bootstrap.Carousel(document.getElementById('carouselExample'), {
+            interval: 3000,
+            wrap: true
+        });
+        
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
