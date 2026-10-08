@@ -7,4 +7,4 @@ Responsive single-page business website built with **Bootstrap 5.3**: navigation
 
 ## Preview
 
-Open `bootstrap.html` in a browser. No installation needed: Bootstrap is loaded from a CDN.
+Open `index.html` in a browser. No installation needed: Bootstrap is loaded from a CDN.
